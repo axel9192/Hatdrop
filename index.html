@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hat Drop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">HAT DROP</div>
+<div class="cart" onclick="checkout()">🛒 Finalizar</div>
+</header>
+
+<div class="container">
+<h2>Catálogo</h2>
+<div class="products" id="productList"></div>
+</div>
+
+<script src="script.js"></script>
+<script>
+let list = document.getElementById("productList");
+
+products.forEach(p => {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.onclick = () => goToProduct(p.id);
+
+    card.innerHTML = `
+        <img src="${p.images[0]}">
+        <h3>${p.name}</h3>
+        ${p.oldPrice ? `<div class="old-price">$${p.oldPrice}</div>` : ""}
+        <div class="price">$${p.price}</div>
+    `;
+
+    list.appendChild(card);
+});
+</script>
+
+</body>
+</html>
